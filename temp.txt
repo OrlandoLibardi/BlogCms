@@ -1,0 +1,26 @@
+
+        $categories = \OrlandoLibardi\BlogCms\app\BlogHasCategory::whereIn('category_id', ['11', '12'])
+                      ->get();
+
+        $blog = array_pluck($categories, 'blog_id');
+
+        dump($blog);
+        
+
+        $blog = Blog::whereIn('id', $blog)
+                    ->active()
+                    ->with(['categories'])    
+                    ->get();
+        dump($blog);
+
+        $ids = ['9', '11'];
+        $b = Blog::active()
+                  ->whereHas('categories', function($q) use ($ids){
+                     $q->whereIn('category_id', $ids);
+                  })
+                  ->get();
+
+        dump($b);    
+        
+        $teste = Blog::categorie( $ids )->get();
+        dump($teste);
