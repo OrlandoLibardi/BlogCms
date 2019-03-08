@@ -52,7 +52,7 @@ class BlogCategoryController extends Controller
        
        return response()
        ->json(array(
-           'message' => __('olcms::messages.create_success'),
+           'message' => __('messages.create_success'),
            'status'  =>  'success'
        ), 201);
 
@@ -95,7 +95,7 @@ class BlogCategoryController extends Controller
 
         return response()
         ->json(array(
-            'message' => __('olcms::messages.update_success'),
+            'message' => __('messages.update_success'),
             'status'  =>  'success'
         ), 201);
     }
@@ -116,7 +116,7 @@ class BlogCategoryController extends Controller
 
         return response()
         ->json(array(
-            'message' => __('olcms::messages.destroy_success'),
+            'message' => __('messages.destroy_success'),
             'status'  =>  'success'
         ), 201);
 

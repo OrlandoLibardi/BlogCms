@@ -53,7 +53,7 @@ class BlogCommentController extends Controller
         $comment->blog()->attach($request->blog_id);
         return response()
         ->json(array(
-            'message' => __('olcms::messages.create_success'),
+            'message' => __('messages.create_success'),
             'status'  =>  'success'
         ), 200);
     }
@@ -80,7 +80,7 @@ class BlogCommentController extends Controller
        $comment = BlogComment::find($id)->update($request->all());
        return response()
         ->json(array(
-            'message' => __('olcms::messages.update_success'),
+            'message' => __('messages.update_success'),
             'status'  =>  'success'
         ), 200);
     }
@@ -91,7 +91,7 @@ class BlogCommentController extends Controller
         BlogComment::find($id)->update($request->all());
         return response()
         ->json(array(
-            'message' => __('olcms::messages.update_success'),
+            'message' => __('messages.update_success'),
             'status'  =>  'success'
         ), 201);
     }
@@ -111,7 +111,7 @@ class BlogCommentController extends Controller
           
         return response()
         ->json(array(
-            'message' => __('olcms::messages.destroy_success'),
+            'message' => __('messages.destroy_success'),
             'status'  =>  'success'
         ), 201);
     }

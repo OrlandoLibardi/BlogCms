@@ -14,7 +14,7 @@ class CommentStoreController extends Controller
     {
        $comment = BlogComment::create($request->all());
        $comment->blog()->attach($request->blog_id);
-       return back()->with('success', [__('olcms::messages.create_success')]);    
+       return back()->with('success', [__('messages.create_success')]);    
     }
 
 }
