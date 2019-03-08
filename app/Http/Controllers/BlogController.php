@@ -72,7 +72,7 @@ class BlogController extends Controller
 
         return response()
         ->json(array(
-            'message' => __('olcms::messages.create_success'),
+            'message' => __('messages.create_success'),
             'status'  =>  'success'
         ), 200);
     }
@@ -130,7 +130,7 @@ class BlogController extends Controller
 
         return response()
         ->json(array(
-            'message' => __('olcms::messages.update_success'),
+            'message' => __('messages.update_success'),
             'status'  =>  'success'
         ), 201);
     }
@@ -140,7 +140,7 @@ class BlogController extends Controller
         Blog::find($id)->update($request->all());
         return response()
         ->json(array(
-            'message' => __('olcms::messages.update_success'),
+            'message' => __('messages.update_success'),
             'status'  =>  'success'
         ), 201);
 
@@ -156,13 +156,13 @@ class BlogController extends Controller
         
         foreach(json_decode($request->id) as $id)
         {
-            \OrlandoLibardi\BlogCms\app\BlogContent::find($id)->delete();
+            \OrlandoLibardi\BlogCms\app\BlogContent::where('blog_id', $id)->delete();
             Blog::find($id)->delete();            
         }
           
         return response()
         ->json(array(
-            'message' => __('olcms::messages.update_success'),
+            'message' => __('messages.update_success'),
             'status'  =>  'success'
         ), 201);
     }
