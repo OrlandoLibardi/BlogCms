@@ -22,7 +22,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "OrlandoLibardi\\BlogCms\\app\\Providers\\OlCmsBlogServiceProvider"
+                "OrlandoLibardi\\BlogCms\\app\\Providers\\OlCmsBlogServiceProvider",
+                "OrlandoLibardi\\BlogCms\\app\\Providers\\OlCmsBlogviewServiceProvider"
             ],
             "aliases": {
                 "OlCmsBlog": "OrlandoLibardi\\BlogCms\\app\\Providers\\OlCmsBlogFacada"

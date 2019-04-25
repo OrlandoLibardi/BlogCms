@@ -17,7 +17,7 @@ class BlogAdminTableSeeder extends Seeder
        $blog =  Admin::create([
                     'name' => 'Blog',
                     'route' => '',
-                    'icon' => 'fa fa-book',
+                    'icon' => 'fa fa-file-text-o',
                     'parent_id' => 0,
                     'minimun_can' => 'list',
                     'order_at' => 3

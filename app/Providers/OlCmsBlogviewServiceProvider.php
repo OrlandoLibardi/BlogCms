@@ -2,6 +2,10 @@
 
 namespace OrlandoLibardi\BlogCms\app\Providers;
 
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
+use Illuminate\View\Compilers\BladeCompiler;
 
 class OlCmsBlogviewServiceProvider extends ServiceProvider{
     
