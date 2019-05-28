@@ -22,6 +22,12 @@ use OrlandoLibardi\BlogCms\app\Obervers\BlogCommentOberver;
 class OlCmsBlogServiceProvider extends ServiceProvider{
 
     /**
+    * Comando
+    */
+    protected $commands = [
+        'OrlandoLibardi\BlogCms\app\Console\Commands\BlogCmsCommand',
+    ];
+    /**
      * Bootstrap any application services.
      *
      * @return void
@@ -35,7 +41,6 @@ class OlCmsBlogServiceProvider extends ServiceProvider{
                ->middleware(['web', 'auth'])
                ->prefix('admin')
                ->group(__DIR__. '/../../routes/web.php');
-
         /**
          * Rotas publicas 
          */
@@ -55,8 +60,7 @@ class OlCmsBlogServiceProvider extends ServiceProvider{
          */
         $this->publishes( [
             __DIR__.'/../../public/assets/theme-admin/' => public_path('assets/theme-admin/'),
-        ],'public');
-        
+        ],'public');        
         /**
          * Observer Blog
          */
@@ -78,5 +82,14 @@ class OlCmsBlogServiceProvider extends ServiceProvider{
          */
         BlogComment::observe(BlogCommentOberver::class);
         
+    }
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        $this->commands($this->commands);
     }
 }
