@@ -1,7 +1,6 @@
 <?php
 namespace OrlandoLibardi\BlogCms\app\Console\Commands;
 use Illuminate\Console\Command;
-use Log;
 
 class BlogCmsCommand extends Command{
    /**
@@ -32,10 +31,9 @@ class BlogCmsCommand extends Command{
      */
     public function handle()
     {
-
         if($this->confirm('Copiar os arquivos?') ){
-            $this->call('vendor:publish', ['provider' => 'OrlandoLibardi\BlogCms\app\Providers\OlCmsBlogServiceProvider', '--tag' => 'config']);
-            $this->call('vendor:publish', ['provider' => 'OrlandoLibardi\BlogCms\app\Providers\OlCmsBlogServiceProvider', '--tag' => 'public']);        
+            $this->call('vendor:publish', ['--provider' => 'OrlandoLibardi\BlogCms\app\Providers\OlCmsBlogServiceProvider', '--tag' => 'config']);
+            $this->call('vendor:publish', ['--provider' => 'OrlandoLibardi\BlogCms\app\Providers\OlCmsBlogServiceProvider', '--tag' => 'public']);        
             $this->info('Copiados!');
         }
 
@@ -47,28 +45,16 @@ class BlogCmsCommand extends Command{
         
         if($this->confirm('Apagar os arquivos, originais na pasta vendor?')) { 
 
-            $rm = [];
-
             foreach ($base as $b){
-               $this->getDirContents($b, $rm);
+               $this->getDirContents($b);
             }
 
-            $this->rmFiles($rm);
         }
 
         return 0;
     }
 
-    
-    public function rmFiles($files){
-        
-        foreach($files as $file){
-           @unlink( $file );
-        } 
-
-    }
-
-    public function getDirContents($dir, &$results = array()){
+    public function getDirContents($dir){
 
         $files = scandir($dir);
     
@@ -77,16 +63,13 @@ class BlogCmsCommand extends Command{
             $path = realpath($dir.DIRECTORY_SEPARATOR.$value);
 
             if(!is_dir($path)) {
-                
-                $results[] = $path;                
 
-            } else if($value != "." && $value != "..") {
-                
-                $this->getDirContents($path, $results);
+                @unlink( $path );               
+            } 
+            else if($value != "." && $value != "..") {
+                $this->getDirContents($path);
 
             }
         }   
-
-        return $results;
     }
 }
