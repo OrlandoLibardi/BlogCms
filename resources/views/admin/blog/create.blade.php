@@ -221,7 +221,7 @@
 @push('style')
 <link rel="stylesheet" href="{{ asset('assets/theme-admin/css/plugins/OLForm/OLForm.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/theme-admin/js/plugins/summernote/summernote.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/theme-admin/css/blog.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/theme-admin/css/plugins/BlogCms/blog.css') }}">
 @endpush
 @push('script')
 <script src="{{ asset('assets/theme-admin/js/main.js') }}"></script>
@@ -229,14 +229,14 @@
 <script src="{{ asset('assets/theme-admin/js/plugins/OLForm/OLForm.jquery.js') }}"></script>
 <!-- images -->
 <script src="{{ asset('assets/theme-admin/js/plugins/OLForm/OLFiles.jquery.js') }}"></script>
-<!-- include summernote css/js -->
+<!-- include summernote js -->
 <script src="{{ asset('assets/theme-admin/js/plugins/summernote/summernote.js') }}"></script>
 <script src="{{ asset('assets/theme-admin/js/plugins/summernote/lang/summernote-pt-BR.js') }}"></script>
-<script src="{{ asset('assets/theme-admin/js/plugins/OLForm/imageSummerNote.js') }}"></script>
+<script src="{{ asset('assets/theme-admin/js/plugins/BlogCms/imageSummerNote.js') }}"></script>
 <!-- contables -->
-<script src="{{ asset('assets/theme-admin/js/plugins/OLForm/OLInputCount.jquery.js') }}"></script>
+<script src="{{ asset('assets/theme-admin/js/plugins/BlogCms/OLInputCount.jquery.js') }}"></script>
 <!-- blog -->
-<script src="{{ asset('assets/theme-admin/js/blog-create.js') }}"></script>
+<script src="{{ asset('assets/theme-admin/js/plugins/BlogCms/BlogCms.js') }}"></script>
 @if(isset($blog->categories))
 <script>
     @foreach( $blog->categories as $value )
