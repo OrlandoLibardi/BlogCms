@@ -50,6 +50,12 @@ class OlCmsBlogServiceProvider extends ServiceProvider{
             __DIR__.'/../../database/seeds/' => database_path('seeds'),
             __DIR__.'/../../config/blog.php' => config_path('blog.php'),
         ],'config');
+        /**
+         * Publicar arquivos publicos
+         */
+        $this->publishes( [
+            __DIR__.'/../../public/assets/theme-admin/' => public_path('assets/theme-admin/'),
+        ],'public');
         
         /**
          * Observer Blog
